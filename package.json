@@ -9,6 +9,7 @@
   "author": "Arjit Das",
   "license": "ISC",
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.592.0"
+    "@aws-sdk/client-s3": "^3.592.0",
+    "@aws-sdk/client-sqs": "^3.600.0"
   }
 }
