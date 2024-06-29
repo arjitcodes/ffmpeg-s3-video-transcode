@@ -11,7 +11,6 @@ RUN   /usr/bin/apt-get install -y nodejs ffmpeg
 
 WORKDIR /home/app
 
-COPY main.sh main.sh
 
 
 COPY src src
@@ -22,7 +21,6 @@ RUN npm install
 RUN mkdir -p video/outputs
 
 
-RUN chmod +x main.sh
 RUN chmod +x src/script.js
 
 
