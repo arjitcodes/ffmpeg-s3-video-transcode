@@ -9,10 +9,10 @@ const folderPath = path.join(__dirname, "../video/outputs");
 const s3Dir = process.env.INPUT_KEY.split('.')[0]
 
 const outputS3Client = new S3Client({
-    region: process.env.AWS_HLS_BUCKET_REGION,
+    region: process.env.TARGET_BUCKET_REGION,
     credentials: {
-        accessKeyId: process.env.AWS_HLS_ACCESS_KEY,
-        secretAccessKey: process.env.AWS_HLS_SECRET_KEY
+        accessKeyId: process.env.TARGET_ACCESS_KEY,
+        secretAccessKey: process.env.TARGET_SECRET_KEY
     }
 })
 
@@ -39,7 +39,7 @@ const uploadFolder = async (bucket = process.env.AWS_HLS_BUCKET_NAME) => {
 
     try {
 
-        const files =await fs.readdir(folderPath);
+        const files = await fs.readdir(folderPath);
 
         if (!files || files.length === 0) {
             console.log(`${folderPath} folder is empty or does not exist.`);
@@ -55,7 +55,7 @@ const uploadFolder = async (bucket = process.env.AWS_HLS_BUCKET_NAME) => {
                 continue;
             }
 
-            const fileContent =await fs.readFile(filePath)
+            const fileContent = await fs.readFile(filePath)
             if (!fileContent) {
                 throw Error(`Error to read file content ${filePath}`)
             }

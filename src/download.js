@@ -11,10 +11,10 @@ function isDownloadComplete({ end, length }) {
 
 
 const inputS3Client = new S3Client({
-    region: process.env.AWS_TMP_BUCKET_REGION,
+    region: process.env.SOURCE_BUCKET_REGION,
     credentials: {
-        accessKeyId: process.env.AWS_TMP_ACCESS_KEY,
-        secretAccessKey: process.env.AWS_TMP_SECRET_KEY
+        accessKeyId: process.env.SOURCE_ACCESS_KEY,
+        secretAccessKey: process.env.SOURCE_SECRET_KEY
     }
 })
 
